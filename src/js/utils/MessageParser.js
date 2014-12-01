@@ -30,12 +30,12 @@ var passes = [
     }
   },
   {
-    regex: COMMENT_REGEX,
-    process: wrapSpanFactory(LanguageClasses.COMMENT)
-  },
-  {
     regex: STRING_REGEX,
     process: wrapSpanFactory(LanguageClasses.STRING)
+  },
+  {
+    regex: COMMENT_REGEX,
+    process: wrapSpanFactory(LanguageClasses.COMMENT)
   },
   {
     regex: FUNCTION_REGEX,
