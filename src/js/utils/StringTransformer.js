@@ -27,7 +27,7 @@ StringTransformer.prototype.transform = function(source) {
   var pass, transformed, toTransform, toMatch;
 
   pass = arguments[1];
-  !pass && (pass = 0);
+  if(!pass) pass = 0;
 
   if(pass === this._passes.length) return source;
 
@@ -41,7 +41,7 @@ StringTransformer.prototype.transform = function(source) {
   }.bind(this));
 
   // TODO: Lol don't do this
-  toTransform = source.replace(toMatch, '^^^^^').split('^^^^^');
+  toTransform = source.replace(toMatch, '\0').split('\0');
 
   toTransform = toTransform.map(function(s) {
     return this.transform(s, pass + 1);
